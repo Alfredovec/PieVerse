@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PieVerse.DomainModel.Entities;
 
-namespace PieVerse.BLL
+namespace PieVerse.DAL.Interfaces
 {
-    public class Class1
+    public interface IAuthorRepository : IRepository<Author>
     {
+
     }
 }

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PieVerse.DomainModel.Entities;
 
 namespace PieVerse.DAL
 {
@@ -11,7 +12,13 @@ namespace PieVerse.DAL
     {
         public PieverseContext() : base("PieverseContext")
         {
-            
+            Database.SetInitializer(new DbInitializer());
         }
+
+        public DbSet<Author> Authors { get; set; }
+
+        public DbSet<FirstLine> FirstLines { get; set; }
+
+        public DbSet<Pieverse> Pieverses { get; set; }
     }
 }

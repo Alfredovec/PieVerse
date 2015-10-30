@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PieVerse.BLL.Interfaces;
+using PieVerse.DomainModel.Entities;
 using PieVerse.Web.Models;
 
 namespace PieVerse.Web.Controllers
 {
     public class PieverseController : Controller
     {
+        private readonly IService _service;
+
+        public PieverseController(IService service)
+        {
+            _service = service;
+        }
+
         public ActionResult Feed()
         {
             return View();
@@ -17,11 +26,12 @@ namespace PieVerse.Web.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            FirstLine line = _service.FirstLineService.GetRandomFirstLine();
+            return View(new PieverseCreateViewModel() { FirstLine = line });
         }
 
         [HttpPost]
-        public ActionResult Add(PieverseViewModel model)
+        public ActionResult Add(PieverseCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
