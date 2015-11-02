@@ -2,36 +2,24 @@
 
 @{
     ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add</h2>
+<p class="firstLine" id="firstLine">
+    @Html.Partial("_FirstLine", Model.FirstLine)
+</p>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Pieverse creation</legend>
-
-        @Html.HiddenFor(model => model.FirstLine.Id)
-
-        <div>
-            @Html.DisplayFor(model => model.FirstLine.Body)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Body)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Body)
-            @Html.ValidationMessageFor(model => model.Body)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
+    @Html.TextAreaFor(m => m.Body, new { @class = "nextLines", rows = "3" })
+    <div>
+        <input type="submit" value="Написати" />
+    </div>
 }
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

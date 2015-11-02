@@ -18,12 +18,14 @@ namespace PieVerse.Web.Controllers
             _service = service;
         }
 
-        public ActionResult Feed()
+        [ActionName("feed")]
+        public ActionResult GetFeed()
         {
             return View();
         }
 
         [HttpGet]
+        [ActionName("add")]
         public ActionResult Add()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
@@ -31,6 +33,7 @@ namespace PieVerse.Web.Controllers
         }
 
         [HttpPost]
+        [ActionName("add")]
         public ActionResult Add(PieverseCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -38,6 +41,12 @@ namespace PieVerse.Web.Controllers
                 return View();
             }
             return View(model);
+        }
+
+        public PartialViewResult RefreshLine()
+        {
+            FirstLine line = _service.FirstLineService.GetRandomFirstLine();
+            return PartialView("_FirstLine", line);
         }
     }
 }
