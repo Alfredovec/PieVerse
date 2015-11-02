@@ -1,0 +1,67 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    color: #84c1e1;
+}
+
+.logo {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    font-size: 72px;
+    margin: 12px auto;
+}
+
+.menu {
+    width: 700px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 0;
+}
+
+.menu li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 25px;
+    text-transform: uppercase;
+    font-size: 25px;
+    
+}
+
+.menu li.active {
+    text-decoration: underline;
+}
+
+main {
+    width: 700px;
+    margin: 35px auto;
+}
+
+.firstLine {
+    width: 500px;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+}
+
+.nextLines {
+    width: 450px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #84c1e1;
+}
+
+.randomLine {
+    width: 20px;
+    height: 20px;
+    line-height: 30px;
+    background-image: url(~/../../Images/refresh.png);
+    background-size: contain; 
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+}
