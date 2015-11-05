@@ -5,21 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p class="firstLine" id="firstLine">
-    @Html.Partial("_FirstLine", Model.FirstLine)
-</p>
-
 @using (Html.BeginForm())
 {
+    <p class="firstLine" id="firstLine">
+        @Html.Partial("_FirstLine", Model.FirstLine)
+    </p>
+
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
+    @Html.HiddenFor(m => m.FirstLine.Body)
+    @Html.HiddenFor(m => m.FirstLine.Id)
+
+    @Html.ValidationMessageFor(m => m.Body)
     @Html.TextAreaFor(m => m.Body, new { @class = "nextLines", rows = "3" })
     <div>
         <input type="submit" value="Написати" />
     </div>
 }
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

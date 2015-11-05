@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using PieVerse.DomainModel.Entities;
+using PieVerse.Web.Attributes;
 
 namespace PieVerse.Web.Models
 {
@@ -13,8 +14,9 @@ namespace PieVerse.Web.Models
         public int Id { get; set; }
 
         [Required]
+        [PieverseValidation(ErrorMessage = "Ваше произведение, конечно, прекрасно, но это не пирожок")]
         public string Body { get; set; }
 
-        public FirstLine FirstLine;
+        public FirstLineViewModel FirstLine;
     }
 }

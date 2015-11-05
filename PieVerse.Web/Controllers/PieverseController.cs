@@ -29,7 +29,8 @@ namespace PieVerse.Web.Controllers
         public ActionResult Add()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            return View(new PieverseCreateViewModel() { FirstLine = line });
+            PieverseCreateViewModel model = new PieverseCreateViewModel() { FirstLine = new FirstLineViewModel() { Body = line.Body, Id = line.Id } };
+            return View(model);
         }
 
         [HttpPost]

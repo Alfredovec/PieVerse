@@ -1,7 +1,6 @@
-﻿@model PieVerse.DomainModel.Entities.FirstLine
-           
+﻿@model PieVerse.Web.Models.FirstLineViewModel
+
 @Html.DisplayFor(m => m.Body)
-@Html.HiddenFor(m => m.Id)
 <a class="randomLine" data-ajax="true" data-ajax-mode="replace"
    data-ajax-update="#firstLine" href="@Url.Action("RefreshLine")" 
    title="Інший випадковий рядок"></a>
