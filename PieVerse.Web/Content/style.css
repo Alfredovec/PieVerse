@@ -65,3 +65,13 @@ main {
 footer {
     text-align: center;
 }
+
+.field-validation-error {
+    color: red;
+    display: block;
+    white-space: pre-line;
+}
+
+.pieverse {
+    white-space: pre-line;
+}

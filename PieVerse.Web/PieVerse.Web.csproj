@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -213,7 +217,6 @@
     <Compile Include="Mappers\PieverseMapper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FirstLineViewModel.cs" />
-    <Compile Include="Models\PieverseCreateViewModel.cs" />
     <Compile Include="Models\PieverseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -328,8 +331,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Pieverse\add.cshtml" />
-    <Content Include="Views\Pieverse\feed.cshtml" />
     <Content Include="Views\Pieverse\_FirstLine.cshtml" />
+    <Content Include="Views\Pieverse\feed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

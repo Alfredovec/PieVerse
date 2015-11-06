@@ -8,7 +8,7 @@ using PieVerse.DomainModel.Entities;
 
 namespace PieVerse.DAL
 {
-    public class DbInitializer : DropCreateDatabaseAlways<PieverseContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<PieverseContext>
     {
         protected override void Seed(PieverseContext context)
         {
