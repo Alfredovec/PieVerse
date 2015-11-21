@@ -19,6 +19,6 @@ namespace PieVerse.BLL.Services
 
         public IAuthorService AuthorService { get { return new AuthorService(); } }
         public IFirstLineService FirstLineService { get { return new FirstLineService(_unitOfWork); } }
-        public IPayverseService PayverseService { get { return new PayverseService(); } }
+        public IPayverseService PayverseService { get { return new PayverseService(_unitOfWork); } }
     }
 }

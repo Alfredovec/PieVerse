@@ -1,8 +1,23 @@
-﻿@model dynamic
+﻿@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
 
 @{
-    ViewBag.Title = "title";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Feed";
 }
 
-<img src="~/Images/feedsample.png" style="height: 100%; width: 100%;"/>
+<h2>Feed</h2>
+
+<p>
+    @Html.ActionLink("Create New", "add", "Pieverse")
+</p>
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="pieverse">
+                @Html.DisplayFor(modelItem => item.FirstLine.Body)
+                @Html.DisplayFor(modelItem => item.Body)
+            </div>
+        </td>
+    </tr>
+}
+</table>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using PieVerse.BLL.Interfaces;
 using PieVerse.DomainModel.Entities;
 using PieVerse.Web.Models;
@@ -22,7 +23,8 @@ namespace PieVerse.Web.Controllers
         [ActionName("feed")]
         public ActionResult GetFeed()
         {
-            return View();
+            IEnumerable<Pieverse> pieverses = _service.PayverseService.Get().ToList();
+            return View(pieverses.Select(Mapper.Map<PieverseViewModel>));
         }
 
         [HttpGet]
@@ -30,16 +32,17 @@ namespace PieVerse.Web.Controllers
         public ActionResult Add()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            return View(new PieverseCreateViewModel() { FirstLine = line });
+            return View(new PieverseViewModel() { FirstLine = Mapper.Map<FirstLineViewModel>(line) });
         }
 
         [HttpPost]
         [ActionName("add")]
-        public ActionResult Add(PieverseCreateViewModel model)
+        public ActionResult Add(PieverseViewModel model)
         {
             if (ModelState.IsValid)
             {
-                return View();
+                _service.PayverseService.Add(Mapper.Map<Pieverse>(model));
+                return RedirectToAction("feed");
             }
             return View(model);
         }
@@ -47,7 +50,7 @@ namespace PieVerse.Web.Controllers
         public PartialViewResult RefreshLine()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            return PartialView("_FirstLine", line);
+            return PartialView("_FirstLine", new FirstLineViewModel() { Body = line.Body, Id = line.Id });
         }
     }
 }
