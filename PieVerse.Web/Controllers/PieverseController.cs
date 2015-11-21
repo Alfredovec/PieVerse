@@ -9,6 +9,7 @@ using PieVerse.Web.Models;
 
 namespace PieVerse.Web.Controllers
 {
+    [Authorize]
     public class PieverseController : Controller
     {
         private readonly IService _service;

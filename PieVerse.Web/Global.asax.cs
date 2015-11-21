@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using PieVerse.Web.App_Start;
+using WebMatrix.WebData;
 
 namespace PieVerse.Web
 {
@@ -25,6 +26,7 @@ namespace PieVerse.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             MapperConfig.RegisterMaps();
+            WebSecurity.InitializeDatabaseConnection("AccountContext", "UserProfile", "UserId", "UserName", true);
         }
     }
 }
