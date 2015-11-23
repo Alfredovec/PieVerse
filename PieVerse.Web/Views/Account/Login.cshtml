@@ -3,35 +3,19 @@
 @{
     ViewBag.Title = "Login";
     ViewBag.PageTitle = "Login: enter your credential";
-    Layout = null;
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Log on" class="btn btn-default" />
-            </div>
+    <div class="login">
+        <h1 class="logo w small">PieVerse</h1><br />
+        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { PlaceHolder = "Логин" } })
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { PlaceHolder = "Пароль" } })
+        <div class="buttonsContainer">
+            <input type="submit" value="Войти" />
+            <input type="button" onclick="location.href='@Url.Action("Register", "Account")'" value="Зарегистрироваться" />
         </div>
     </div>
 }

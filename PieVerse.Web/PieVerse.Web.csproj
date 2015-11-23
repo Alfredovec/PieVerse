@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
       <Private>True</Private>
@@ -199,6 +203,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\PieverseAuthorize.cs" />
+    <Compile Include="Attributes\PieverseValidationAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PieverseController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -208,7 +214,6 @@
     <Compile Include="Mappers\PieverseMapper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FirstLineViewModel.cs" />
-    <Compile Include="Models\PieverseCreateViewModel.cs" />
     <Compile Include="Models\PieverseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

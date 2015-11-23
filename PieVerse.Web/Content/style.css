@@ -4,6 +4,7 @@ html, body {
     top: 0;
     width: 100%;
     color: #84c1e1;
+    font-family: 'Play', sans-serif;
 }
 
 .logo {
@@ -11,6 +12,14 @@ html, body {
     text-align: center;
     font-size: 72px;
     margin: 12px auto;
+}
+
+.logo.w {
+    color: #fff;
+}
+
+.logo.small {
+    font-size: 52px;
 }
 
 .menu {
@@ -30,14 +39,142 @@ html, body {
     
 }
 
+.menu li a {
+    color: #84c1e1;
+    text-decoration: none;
+}
+
 .menu li.active {
     text-decoration: underline;
 }
 
 main {
-    width: 700px;
-    margin: 35px auto;
+    /*width: 700px;
+    margin: 35px auto;*/
+    margin: 35px 0;
 }
+
+
+/* login */
+
+.login {
+    width: 500px;
+    margin: 35px auto;
+    background-color: #84c1e1;
+    border: #fff dashed 3px;
+    padding: 30px;
+}
+
+.login input[type=text], .login input[type=password] {
+    width: 350px;
+    margin: 10px auto;
+    display: block;
+    height: 30px;
+    font-family: 'Play', sans-serif;
+    font-size: 15px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    border: 0;
+} 
+
+.login .buttonsContainer {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.login input[type=button], .login input[type=submit] {
+    font-family: 'Play', sans-serif;
+    border: 0;
+    background-color: #f2f9fc;
+    color: #84c1e1;
+    font-size: 20px;
+    padding: 5px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.login input[type=button]:hover {
+    background-color: #fff;
+}
+
+/* read */
+
+.sortContainer {
+    width: 700px;
+    margin: 0 auto 10px;
+}
+
+.sort {
+    text-transform: lowercase;
+    text-align: right;
+}
+
+.sort a {
+}
+
+.sort a.new {
+    margin: 0 3px;
+}
+
+.sort .active{
+    background-color: #84c1e1;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.pieverseContainer {
+    width: 100%;
+    border-color: #84c1e1;
+    border-width: 5px 0 0 0; 
+    border-style: dashed;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.pieverseContainer.b {
+    background-color: #f2f9fc;
+} 
+
+.pieverseContainer.w {
+    background-color: #fff;
+}
+
+.pieverse {
+    width: 700px;
+    display: inline-block;
+    line-height: 92px;
+}
+
+.text {
+    width: 560px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: left;
+}
+
+.like, .writeThis {
+    background-color: #84c1e1;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+
+.writeThis {
+    margin: 0 20px;
+}
+
+.like{
+    margin: 0;
+}
+
+/* write */
 
 .firstLine {
     width: 500px;
@@ -57,21 +194,12 @@ main {
     width: 20px;
     height: 20px;
     line-height: 30px;
-    background-image: url(~/../../Images/refresh.png);
+    background-image: url(img/refresh.png);
     background-size: contain; 
     display: inline-block;
 }
 
 footer {
     text-align: center;
-}
-
-.field-validation-error {
-    color: red;
-    display: block;
-    white-space: pre-line;
-}
-
-.pieverse {
-    white-space: pre-line;
+    padding: 30px;
 }

@@ -7,13 +7,14 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using PieVerse.Web.Attributes;
 using PieVerse.Web.Filters;
 using PieVerse.Web.Models;
 using WebMatrix.WebData;
 
 namespace PieVerse.Web.Controllers
 {
-    [Authorize]
+    [PieverseAuthorize]
     public class AccountController : Controller
     {
         [HttpGet]
@@ -32,8 +33,8 @@ namespace PieVerse.Web.Controllers
             {
                 if (WebSecurity.Login(model.UserName, model.Password))
                 {
-                    if (returnUrl != null)
-                        return Redirect(returnUrl);
+                    //if (returnUrl != null)
+                    //    return Redirect(returnUrl);
                     return RedirectToAction("feed", "Pieverse");
                 }
                 ModelState.AddModelError("", "Sorry, the username or password is invalid");
