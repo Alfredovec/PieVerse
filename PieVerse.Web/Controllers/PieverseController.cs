@@ -6,11 +6,12 @@ using System.Web.Mvc;
 using AutoMapper;
 using PieVerse.BLL.Interfaces;
 using PieVerse.DomainModel.Entities;
+using PieVerse.Web.Attributes;
 using PieVerse.Web.Models;
 
 namespace PieVerse.Web.Controllers
 {
-    [Authorize]
+    [PieverseAuthorize]
     public class PieverseController : Controller
     {
         private readonly IService _service;

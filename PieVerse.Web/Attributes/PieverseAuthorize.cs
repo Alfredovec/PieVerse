@@ -10,7 +10,7 @@ namespace PieVerse.Web.Attributes
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            bool auth = HttpContext.Current.Request.IsAuthenticated;
+            bool auth = HttpContext.Current.User.Identity.IsAuthenticated;
             if (!auth)
                 base.OnAuthorization(filterContext);
         }

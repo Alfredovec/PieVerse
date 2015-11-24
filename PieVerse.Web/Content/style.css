@@ -155,6 +155,7 @@ main {
     font-size: 20px;
     line-height: 23px;
     text-align: left;
+    white-space: pre-line;
 }
 
 .like, .writeThis {
@@ -194,7 +195,7 @@ main {
     width: 20px;
     height: 20px;
     line-height: 30px;
-    background-image: url(img/refresh.png);
+    background-image: url(~/../../Images/refresh.png);
     background-size: contain; 
     display: inline-block;
 }

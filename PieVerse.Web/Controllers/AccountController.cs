@@ -14,18 +14,15 @@ using WebMatrix.WebData;
 
 namespace PieVerse.Web.Controllers
 {
-    [PieverseAuthorize]
     public class AccountController : Controller
     {
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
@@ -43,14 +40,12 @@ namespace PieVerse.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model, string role = "User")
         {
@@ -70,6 +65,7 @@ namespace PieVerse.Web.Controllers
             return View(model);
         }
 
+        [PieverseAuthorize]
         public ActionResult Logoff()
         {
             WebSecurity.Logout();
