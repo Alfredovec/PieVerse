@@ -52,6 +52,7 @@ main {
     /*width: 700px;
     margin: 35px auto;*/
     margin: 35px 0;
+    text-align: center;
 }
 
 
@@ -204,3 +205,14 @@ footer {
     text-align: center;
     padding: 30px;
 }
+
+form {
+    display: inline-block;
+}
+
+.field-validation-error {
+    color: red;
+    white-space: pre;
+}
+
+input[type]
