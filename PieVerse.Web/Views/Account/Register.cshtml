@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @model PieVerse.Web.Models.RegisterModel
 
 @{
@@ -9,54 +9,54 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="login">
         <h1 class="logo w small">PieVerse</h1><br />
-    <!--<div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">-->
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Логін" } })
-                <!-- @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <!--<div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">-->
+        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Логин" } })
+        <!-- @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">-->
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Email" } })
-                <!-- @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "E-mail" } })
+        <!-- @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">-->
-                @Html.PasswordFor(model => model.Password, new { htmlAttributes = new @class = "form-control", PlaceHolder = "Пароль" })
-                <!-- @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control", PlaceHolder = "Пароль" })
+        <!-- @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">-->
-                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Повторіть пароль"} })
-                <!-- @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
+        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Повторите пароль" } })
+        <!-- @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Register" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-    </div>-->
+        </div>-->
         <div class="buttonsContainer">
-            <input type="submit" value="Зареєструватись" />
+            <input type="submit" value="Зарегистрироваться" />
         </div>
     </div>
 }

@@ -55,6 +55,7 @@ namespace PieVerse.Web.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     Roles.AddUserToRole(model.UserName, role);
+                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("feed", "Pieverse");
                 }
                 catch (Exception)
@@ -66,7 +67,7 @@ namespace PieVerse.Web.Controllers
         }
 
         [PieverseAuthorize]
-        public ActionResult Logoff()
+        public ActionResult LogOff()
         {
             WebSecurity.Logout();
             return RedirectToAction("feed", "Pieverse");

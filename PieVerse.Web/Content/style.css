@@ -220,3 +220,11 @@ form {
     color: red;
     white-space: pre;
 }
+
+.text-danger {
+    color: red;
+}
+
+.text-danger > ul {
+     list-style-type: none;
+}

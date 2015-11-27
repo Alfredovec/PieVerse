@@ -11,12 +11,13 @@
     @Html.AntiForgeryToken()
 
     <div class="login">
-        <h1 class="logo w small">PieVerse</h1><br />
-        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { PlaceHolder = "Логин" } })
-        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { PlaceHolder = "Пароль" } })
+        <h1 class="logo w small">PieVerse</h1><br/> 
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.UserName, new {htmlAttributes = new {PlaceHolder = "Логин"}})
+        @Html.EditorFor(model => model.Password, new {htmlAttributes = new {PlaceHolder = "Пароль"}})
         <div class="buttonsContainer">
-            <input type="submit" value="Войти" />
-            <input type="button" onclick="location.href='@Url.Action("Register", "Account")'" value="Зарегистрироваться" />
+            <input type="submit" value="Войти"/>
+            <input type="button" onclick=" location.href = '@Url.Action("Register", "Account")' " value="Зарегистрироваться"/>
         </div>
     </div>
 }
