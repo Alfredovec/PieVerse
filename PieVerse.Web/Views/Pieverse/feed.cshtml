@@ -1,8 +1,10 @@
-﻿@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
+@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
 
+@* Rud's kostyl' begin *@
 @{
     ViewBag.ReadStyle = "active";
 }
+@* Rud's kostyl' end *@
 
 <div class="sortContainer">
     <div class="sort">
@@ -13,8 +15,8 @@
 
 @for (var i = 0; i < Model.Count(); i++)
 {
-    var pieverseClass = i % 2 == 0 ? "b" : "w";
-    <div class="pieverseContainer @pieverseClass">
+    var pieverseColorClass = i % 2 == 0 ? "b" : "w";
+    <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
             <p class="text">
                 @Model.ElementAt(i).FirstLine.Body

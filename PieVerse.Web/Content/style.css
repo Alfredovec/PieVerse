@@ -7,6 +7,11 @@ html, body {
     font-family: 'Play', sans-serif;
 }
 
+.loginLink {
+    width: 100%;
+    text-align: right;
+}
+
 .logo {
     font-family: 'Amatic SC', cursive;
     text-align: center;
@@ -66,7 +71,7 @@ main {
     padding: 30px;
 }
 
-.login input[type=text], .login input[type=password] {
+.login input[type=email], .login input[type=text], .login input[type=password] {
     width: 350px;
     margin: 10px auto;
     display: block;
@@ -94,7 +99,7 @@ main {
     border-radius: 5px;
 }
 
-.login input[type=button]:hover {
+.login input[type=button]:hover, .login input[type=submit]:hover {
     background-color: #fff;
 }
 
@@ -170,6 +175,7 @@ main {
 
 .writeThis {
     margin: 0 20px;
+    visibility: hidden;
 }
 
 .like{
@@ -214,5 +220,3 @@ form {
     color: red;
     white-space: pre;
 }
-
-input[type]
