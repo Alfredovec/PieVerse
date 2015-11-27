@@ -18,8 +18,7 @@
     var pieverseColorClass = i % 2 == 0 ? "b" : "w";
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
-            <p class="text">
-                @Model.ElementAt(i).FirstLine.Body
+            <p class="text">@Model.ElementAt(i).FirstLine.Body
                 @Model.ElementAt(i).Body
             </p><a class="writeThis"></a><a class="like"></a>
         </div>
