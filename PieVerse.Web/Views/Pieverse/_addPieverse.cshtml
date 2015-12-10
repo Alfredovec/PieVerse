@@ -1,0 +1,20 @@
+﻿@model PieVerse.Web.Models.PieverseViewModel
+           
+@using (Html.BeginForm("AddPieverse", "Pieverse", FormMethod.Post))
+{
+    <p class="firstLine" id="firstLine">
+        @Html.Partial("_FirstLine", Model.FirstLine)
+    </p>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(m => m.FirstLine.Body)
+    @Html.HiddenFor(m => m.FirstLine.Id)
+
+    @Html.ValidationMessageFor(m => m.Body, "", new { style = "display: block;" })
+    @Html.TextAreaFor(m => m.Body, new { @class = "nextLines", rows = "3" })
+    <div>
+        <input type="submit" value="Написать" />
+    </div>
+}

@@ -1,0 +1,12 @@
+﻿@model PieVerse.Web.Models.FirstLineViewModel
+
+@using (Html.BeginForm("AddFirstline", "Pieverse", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.ValidationMessageFor(m => m.Body, "", new { style = "display: block;" })
+    <span>Добавьте свою строку:</span>
+    @Html.EditorFor(m => m.Body)
+    <input type="submit" value="Добавить"/>
+}

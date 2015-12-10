@@ -27,7 +27,7 @@ namespace PieVerse.Web.Attributes
                 this.ErrorMessage += string.Format("В пирожке должно быть 4 строки.{0}", Environment.NewLine);
             if (isThreeRows && !isRightVowels)
                 this.ErrorMessage += string.Format("Ваше произведение не соответствует ритму.{0}Придерживайтесь ритма пирожка: 9-8-9-8.{0}У вас вышло 9-{1}-{2}-{3}.",
-                    "\r\n", rows[0].Count(c => Vowels.Contains(c)), rows[1].Count(c => Vowels.Contains(c)), rows[2].Count(c => Vowels.Contains(c)));
+                    Environment.NewLine, rows[0].Count(c => Vowels.Contains(c)), rows[1].Count(c => Vowels.Contains(c)), rows[2].Count(c => Vowels.Contains(c)));
 
 
             return isLowCase

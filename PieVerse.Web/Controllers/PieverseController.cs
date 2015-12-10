@@ -37,7 +37,7 @@ namespace PieVerse.Web.Controllers
         }
 
         [HttpPost]
-        [ActionName("add")]
+        [ActionName("AddPieverse")]
         public ActionResult Add(PieverseViewModel model)
         {
             if (ModelState.IsValid)
@@ -45,7 +45,24 @@ namespace PieVerse.Web.Controllers
                 _service.PayverseService.Add(Mapper.Map<Pieverse>(model));
                 return RedirectToAction("feed");
             }
-            return View(model);
+            return View("_addPieverse", model);
+        }
+
+        [ActionName("AddFirstline")]
+        public ActionResult Add(FirstLineViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.FirstLineService.Add(Mapper.Map<FirstLine>(model));
+                return RedirectToAction("feed");
+            }
+            return View("_addFirstLine", model);
+        }
+
+        public PartialViewResult Sort()
+        {
+            // TODO @Rud 
+            return null;
         }
 
         public PartialViewResult RefreshLine()

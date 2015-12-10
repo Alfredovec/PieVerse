@@ -24,5 +24,11 @@ namespace PieVerse.BLL.Services
             var firstLines = _unitOfWork.FirstLineRepository.Get().ToList();
             return firstLines.ElementAt(random.Next(firstLines.Count()));
         }
+
+        public void Add(FirstLine line)
+        {
+            _unitOfWork.FirstLineRepository.Create(line);
+            _unitOfWork.Save();
+        }
     }
 }

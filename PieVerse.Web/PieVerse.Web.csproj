@@ -203,6 +203,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\FirstLineValidationAttribute.cs" />
     <Compile Include="Attributes\PieverseAuthorize.cs" />
     <Compile Include="Attributes\PieverseValidationAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -318,12 +319,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Pieverse\add.cshtml" />
-    <Content Include="Views\Pieverse\feed.cshtml" />
+    <Content Include="Views\Pieverse\Add.cshtml" />
+    <Content Include="Views\Pieverse\Feed.cshtml" />
     <Content Include="Views\Pieverse\_FirstLine.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_EmptyLayout.cshtml" />
+    <Content Include="Views\Pieverse\_addPieverse.cshtml" />
+    <Content Include="Views\Pieverse\_addFirstLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
