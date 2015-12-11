@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
+@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
 
 @* Rud's kostyl' begin *@
 @{
@@ -6,11 +6,17 @@
 }
 @* Rud's kostyl' end *@
 
-<div class="sortContainer">
-    <div class="sort">
-        <a class="new active">Новые</a>
-        <a class="popular">Популярные</a>
+<div class = "container-left">
+    <div class="sortContainer">
+        <div class="sort">
+            <a class="new active">Новые</a>
+            <a class="popular">Популярные</a>
+        </div>
     </div>
+</div>
+
+<div class = "container-right">
+    @Html.Partial("_LoginPartial") 
 </div>
 
 @for (var i = 0; i < Model.Count(); i++)
@@ -20,7 +26,10 @@
         <div class="pieverse">
             <p class="text">@Model.ElementAt(i).FirstLine.Body
                 @Model.ElementAt(i).Body
-            </p><a class="writeThis"></a><a class="like"></a>
+            </p><a class="writeThis"></a><a class="like"></a><a class="delete"></a><a class="like"></a><div class="like-container"><div class="like-count">123</div></div>
+        <div class="under">
+            <span class="author">@Author</span>|<span class="date">05:10 06.06.2006</span>
+        </div>
         </div>
     </div>
 }

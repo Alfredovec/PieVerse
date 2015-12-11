@@ -1,6 +1,6 @@
-﻿@if (User.Identity.IsAuthenticated) {
+@if (User.Identity.IsAuthenticated) {
     <text>
-        Добро пожаловать, @User.Identity.Name! <br/>
+        @User.Identity.Name,
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
             @Html.AntiForgeryToken()
             <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>

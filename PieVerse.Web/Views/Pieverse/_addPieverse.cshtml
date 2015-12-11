@@ -1,4 +1,4 @@
-﻿@model PieVerse.Web.Models.PieverseViewModel
+@model PieVerse.Web.Models.PieverseViewModel
            
 @using (Html.BeginForm("AddPieverse", "Pieverse", FormMethod.Post))
 {
@@ -18,3 +18,15 @@
         <input type="submit" value="Написать" />
     </div>
 }
+
+<div class="search-pan">
+    <form>
+        <input type="search" class="search">
+        <input type="submit" value="Пошук" class="search-but">
+    </form>
+    <ul class="line-menu">
+        <li><a href="">13</a></li>
+        <li><a>1232</a></li>
+        <li><a>213</a></li>
+    </ul>
+</div>

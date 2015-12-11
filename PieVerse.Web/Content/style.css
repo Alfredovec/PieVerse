@@ -158,7 +158,6 @@ main {
 .pieverse {
     width: 700px;
     display: inline-block;
-    line-height: 92px;
 }
 
 .text {
@@ -184,9 +183,9 @@ main {
     background-position: center;
 }
 
-.like{
+.like {
     background-color: #a5d2ea;
-    margin: 0;
+    margin: 10px 0 0;
     background-image: url(img/Like-50.png);
 }
 
@@ -198,8 +197,16 @@ main {
     background-color: #60a7cb;
 }
 
+/*.delete {
+    visibility: hidden;
+}
+
+.admin .delete {
+    visibility: visible;
+}*/
+
 .delete {
-    margin: 0 20px;
+    margin: 10px 20px 0;
     background-color: #ff9090;
     background-image: url(img/Delete-50.png);
 }
@@ -209,20 +216,82 @@ main {
 }
 	
 .like-count{ 
-display: inline-block; 
-width: 50px; 
-text-align: center; 
-vertical-align: top; 
+    display: inline-block; 
+    width: 50px; 
+    text-align: center; 
+    vertical-align: top; 
 } 
+
 .like-container{ 
-width: 140px; 
-text-align: right; 
-display: inline-block; 
-vertical-align: top; 
+    width: 140px; 
+    text-align: right; 
+    display: inline-block; 
+    vertical-align: top; 
+    height: 20px;
+    line-height: 20px;
+    margin-top: 3px;
 }
 
+.under {
+    display: inline-block;
+    width: 700px;
+    text-align: left;
+    margin-top: 15px;
+    opacity: .55;
+}
+
+.under div {
+    display: inline-block;
+    width: 200px;
+}
+
+.author {
+    margin-right: 3px;
+}
+
+.date {
+    margin-left: 3px;
+}
 
 /* write */
+
+.line-container>div>form,
+.pieverse-container>div>form {
+    width: 700px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.line-container>div>form>input[type=text] {
+    padding: 5px 9px;
+    outline: none;
+    border: 2px dashed #b2dbf0;
+    border-radius: 3px;
+    font-size: 20px;
+    width: 450px;
+    font-family: 'Play', sans-serif;
+}
+
+.line-container>div>form>input[type=text]:hover,
+.line-container>div>form>input[type=text]:active,
+.line-container>div>form>input[type=text]:focus {
+    border: 2px dashed #84c1e1;
+}
+
+.line-container>div>form>input[type=submit],
+.pieverse-container>div>form>input[type=submit] {
+    margin-left: 10px;
+    border: none;
+    background-color: #a5d2ea;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.line-container>div>form>input[type=submit]:hover,
+.pieverse-container>div>form>input[type=submit]:hover {
+    background-color: #84c1e1;
+}
 
 .firstLine {
     width: 500px;
@@ -232,10 +301,20 @@ vertical-align: top;
 }
 
 .nextLines {
-    width: 450px;
+    width: 450px; 
+    font-family: 'Play', sans-serif;
     font-size: 20px;
     line-height: 30px;
     color: #84c1e1;
+    resize: none;
+    padding: 2px 5px;
+    border: 2px dashed #84c1e1;
+}
+
+.nextLines:active,
+.nextLines:focus {
+    border-color: transparent;
+    outline: none;
 }
 
 .randomLine {
@@ -342,20 +421,4 @@ form {
   margin-top: 15px;
   width: 700px;
   text-align: left;
-}
-
-.under{
-  display: inline-block;
-  width: 700px;
-  text-align: left;
-}
-
-.under div{
-  display:  inline-block;
-  width: 200px;
-}
-
-.like-count{
-  display: inline-block;
-  width: 100px;
 }
