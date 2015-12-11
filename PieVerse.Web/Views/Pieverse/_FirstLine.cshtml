@@ -1,8 +1,8 @@
 ﻿@model PieVerse.Web.Models.FirstLineViewModel
 
-@Html.DisplayFor(m => m.Body)
+@Html.DisplayFor(m => m.Text)
 
-@Html.Hidden("FirstLine.Body", Model.Body)
+@Html.Hidden("FirstLine.Body", Model.Text)
 @Html.Hidden("FirstLine.Id", Model.Id)
 
 <a class="randomLine" data-ajax="true" data-ajax-mode="replace"

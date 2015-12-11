@@ -1,8 +1,6 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using PieVerse.Web.Attributes;
 
 namespace PieVerse.Web.Models
@@ -17,5 +15,7 @@ namespace PieVerse.Web.Models
         public string Body { get; set; }
 
         public FirstLineViewModel FirstLine { get; set; }
+
+        public IEnumerable<string> AllLines { get; set; }
     }
 }

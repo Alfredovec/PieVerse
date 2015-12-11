@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
 
 namespace PieVerse.Web.Attributes
 {
     public class FirstLineValidationAttribute : ValidationAttribute
     {
-        private static readonly char[] Vowels = new char[9] { 'а', 'е', 'ё', 'и', 'о', 'у', 'э', 'ю', 'я' };
+        private static readonly char[] Vowels = new char[10] { 'а', 'е', 'ё', 'и', 'о', 'у', 'э', 'ы', 'ю', 'я' };
 
         public override bool IsValid(object value)
         {
             string pieverse = value as string;
+            if (pieverse == null)
+            {
+                this.ErrorMessage += "Вы забыли написать строку.";
+                return false;
+            }
             bool isLowCase = pieverse.Equals(pieverse.ToLower());
             bool isRightVowels = pieverse.Count(c => Vowels.Contains(c)) == 9;
 

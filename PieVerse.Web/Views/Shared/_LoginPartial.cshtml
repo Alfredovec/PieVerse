@@ -1,14 +1,20 @@
-﻿@if (User.Identity.IsAuthenticated) {
+﻿@if (User.Identity.IsAuthenticated)
+{
     <text>
-        Добро пожаловать, @User.Identity.Name! <br/>
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
             @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+            <div class="container-right">
+                @User.Identity.Name, <a class="log-but" href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+            </div>
         }
     </text>
-} else {
+}
+else
+{
     <ul>
         <li>@Html.ActionLink("Зарегистрироваться", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Войти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+

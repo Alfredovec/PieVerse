@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PieVerse.Web
 {
@@ -9,7 +8,8 @@ namespace PieVerse.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js").Include(
+                        "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -24,6 +24,7 @@ namespace PieVerse.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/bootstrap*")
                 .Include("~/Content/style.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

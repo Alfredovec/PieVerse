@@ -1,6 +1,6 @@
 ﻿@model PieVerse.Web.Models.PieverseViewModel
            
-@using (Html.BeginForm("AddPieverse", "Pieverse", FormMethod.Post))
+@using (Ajax.BeginForm("AddPieverse", "Pieverse", new AjaxOptions() { UpdateTargetId = "addPieverse" }, FormMethod.Post))
 {
     <p class="firstLine" id="firstLine">
         @Html.Partial("_FirstLine", Model.FirstLine)
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    @Html.HiddenFor(m => m.FirstLine.Body)
+    @Html.HiddenFor(m => m.FirstLine.Text)
     @Html.HiddenFor(m => m.FirstLine.Id)
 
     @Html.ValidationMessageFor(m => m.Body, "", new { style = "display: block;" })
@@ -18,3 +18,11 @@
         <input type="submit" value="Написать" />
     </div>
 }
+
+<div>
+    <h2>Также вы можете выбрать такие строки:</h2>
+    @foreach (var line in Model.AllLines)
+    {
+        <div>@line</div>
+    }
+</div>

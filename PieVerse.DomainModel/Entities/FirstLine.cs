@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PieVerse.DomainModel.Entities
 {
@@ -13,7 +9,7 @@ namespace PieVerse.DomainModel.Entities
         public int Id { get; set; }
         
         [Required]
-        public string Body { get; set; }
+        public string Text { get; set; }
 
         // TODO @Kondrat implement other props
 

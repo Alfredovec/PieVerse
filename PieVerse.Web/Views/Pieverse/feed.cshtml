@@ -8,8 +8,8 @@
 
 <div class="sortContainer">
     <div class="sort">
-        <a class="new active">Новые</a>
-        <a class="popular">Популярные</a>
+        <a class="new active" href="@Url.Action("Sort", new {sortingField = "new"})">Новые</a>
+        <a class="popular" href="@Url.Action("Sort", new {sortingField = "popular"})">Популярные</a>
     </div>
 </div>
 
@@ -18,11 +18,20 @@
     var pieverseColorClass = i % 2 == 0 ? "b" : "w";
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
-            <p class="text">@Model.ElementAt(i).FirstLine.Body
+            <p class="text">
+                @Model.ElementAt(i).FirstLine.Text
                 @Model.ElementAt(i).Body
-            </p><a class="writeThis"></a><a class="like"></a>
-        </div>
+            </p>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="like" href="#like"></a><a class="delete" href="@Url.Action("Delete", new {id = @Model.ElementAt(i).Id})"></a>
+            }
+            else
+            {
+                <a class="like" href="#like"></a>
+            }
     </div>
+</div>
 }
 
 

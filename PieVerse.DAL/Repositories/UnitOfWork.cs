@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PieVerse.DAL.Interfaces;
+﻿using PieVerse.DAL.Interfaces;
 
 namespace PieVerse.DAL.Repositories
 {
