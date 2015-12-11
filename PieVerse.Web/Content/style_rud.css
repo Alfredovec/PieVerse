@@ -112,30 +112,21 @@ main {
 
 .sort {
     text-transform: lowercase;
-    text-align: left;
+    text-align: right;
 }
 
 .sort a {
-    color: #84c1e1;
-    text-decoration: none;
-    padding: 3px 10px !important;
 }
 
-.sort a:hover {    
-    color: #84c1e1;
-    background-color: #fff !important;
+.sort a.new {
+    margin: 0 3px;
 }
 
-.sort li {
-    padding: 0 !important;
-}
-
-.sort .active, .sort .active a, .sort a.active:hover {
-    background-color: #84c1e1 !important;
+.sort .active{
+    background-color: #84c1e1;
     color: #fff;
     padding: 3px 10px;
     border-radius: 5px;
-    display: inline-block;
 }
 
 .pieverseContainer {
@@ -173,54 +164,23 @@ main {
     white-space: pre-line;
 }
 
-.like, .delete {
+.like, .writeThis {
+    background-color: #84c1e1;
     width: 50px;
     height: 50px;
     display: inline-block;
     border-radius: 25px;
     vertical-align: middle;
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+.writeThis {
+    margin: 0 20px;
+    visibility: hidden;
 }
 
 .like{
-    background-color: #a5d2ea;
     margin: 0;
-    background-image: url(img/Like-50.png);
 }
-
-.like:hover {
-    background-color: #84c1e1;
-}
-
-.like.active {
-    background-color: #60a7cb;
-}
-
-.delete {
-    margin: 0 20px;
-    background-color: #ff9090;
-    background-image: url(img/Delete-50.png);
-}
-
-.delete:hover {
-    background-color: #fd4949;
-}
-	
-.like-count{ 
-display: inline-block; 
-width: 50px; 
-text-align: center; 
-vertical-align: top; 
-} 
-.like-container{ 
-width: 140px; 
-text-align: right; 
-display: inline-block; 
-vertical-align: top; 
-}
-
 
 /* write */
 
@@ -267,95 +227,4 @@ form {
 
 .text-danger > ul {
      list-style-type: none;
-}
-
-.container-right{
-    text-align:right;
-    display: inline-block;
-    width:350px;
-}
-
-.container-left{
-    text-align:left;
-    display: inline-block;
-    width:350px;
-    vertical-align: top;
-}
-
-.log-but{
-	display: inline-block;
-	border-bottom: 2px dotted #84c1e1;
-	color: #84c1e1;
-}
-
-.log-but:hover {
-    text-decoration: none;
-    border-bottom: 2px solid #84c1e1;
-	color: #84c1e1;
-}
-
-.line-menu{
-  list-style: none;
-  padding: 0px;
-  margin-top: 10px;
-}
-
-.line-menu li{
-  border-bottom: 1px dotted #84c1e1;
-  padding: 5px;
-}
-
-.line-menu li a {
-    color: #84c1e1;
-    text-decoration: none;
-    padding: 3px 10px !important;
-}
-
-.line-menu li a:hover {    
-    color: #84c1e1;
-    background-color: #fff !important;
-}
-
-.search{
-  width: 400px;
-  border: none;
-  border: 2px dotted #84c1e1;
-}
-
-.search:hover{
-  border: 2px solid #84c1e1;
-  
-}
-
-.search:active, .search:focus{
-  background: #84c1e1;
-  color: #fff;
-}
-
-.search-but{
-
-}
-
-.search-pan{
-  padding: 10px;
-  display: inline-block;
-  margin-top: 15px;
-  width: 700px;
-  text-align: left;
-}
-
-.under{
-  display: inline-block;
-  width: 700px;
-  text-align: left;
-}
-
-.under div{
-  display:  inline-block;
-  width: 200px;
-}
-
-.like-count{
-  display: inline-block;
-  width: 100px;
 }
