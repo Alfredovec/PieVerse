@@ -7,7 +7,7 @@ namespace PieVerse.DAL
     {
         public PieverseContext() : base("PieverseContext")
         {
-            Database.SetInitializer(new DbInitializer());
+            //Database.SetInitializer(new DbInitializer());
         }
 
         public DbSet<Author> Authors { get; set; }
@@ -15,5 +15,7 @@ namespace PieVerse.DAL
         public DbSet<FirstLine> FirstLines { get; set; }
 
         public DbSet<Pieverse> Pieverses { get; set; }
+
+        public DbSet<Like> Likes { get; set; }
     }
 }

@@ -207,8 +207,8 @@
     <Compile Include="Attributes\PieverseAuthorize.cs" />
     <Compile Include="Attributes\PieverseValidationAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\PieverseController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -293,6 +293,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\Alfredovec.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -346,6 +347,7 @@
     <Content Include="Views\Shared\_EmptyLayout.cshtml" />
     <Content Include="Views\Pieverse\_addPieverse.cshtml" />
     <Content Include="Views\Pieverse\_addFirstLine.cshtml" />
+    <Content Include="Views\Pieverse\_like.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

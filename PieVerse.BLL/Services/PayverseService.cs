@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using PieVerse.BLL.Interfaces;
 using PieVerse.DAL.Interfaces;
 using PieVerse.DomainModel.Entities;
@@ -15,8 +16,12 @@ namespace PieVerse.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(Pieverse entry)
+        public void Add(Pieverse entry, string authorName)
         {
+            var author = _unitOfWork.AuthorRepository.Get().Single(a => a.Nickname.Equals(authorName));
+            var firstLine = _unitOfWork.FirstLineRepository.Get().Single(l => l.Text.Equals(entry.FirstLine.Text));
+            entry.Author = author;
+            entry.FirstLine = firstLine;
             _unitOfWork.PieverseRepository.Create(entry);
             _unitOfWork.Save();
         }
@@ -28,9 +33,14 @@ namespace PieVerse.BLL.Services
 
         public void Delete(int id)
         {
-            var entry = _unitOfWork.PieverseRepository.Get().First(p => p.Id.Equals(id));
+            var entry = _unitOfWork.PieverseRepository.Get().Single(p => p.Id.Equals(id));
             _unitOfWork.PieverseRepository.Delete(entry);
             _unitOfWork.Save();
+        }
+
+        public Pieverse GetById(int id)
+        {
+            return _unitOfWork.PieverseRepository.Get().Single(p => p.Id.Equals(id));
         }
     }
 }

@@ -6,7 +6,6 @@
 }
 @* Rud's kostyl' end *@
 
-<<<<<<< HEAD
 <div class = "container-left">
     <div class="sortContainer">
         <div class="sort">
@@ -22,9 +21,12 @@
 @for (var i = 0; i < Model.Count(); i++)
 {
     var pieverseColorClass = i % 2 == 0 ? "b" : "w";
+    var pieverse = Model.ElementAt(i);
+    var likeClass = pieverse.IsLiked ? "active" : "";
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
             <p class="text">
+<<<<<<< HEAD
                 @Model.ElementAt(i).FirstLine.Text
                 @Model.ElementAt(i).Body
 <<<<<<< HEAD
@@ -34,18 +36,30 @@
         </div>
         </div>
 =======
+=======
+                @pieverse.FirstLine.Text
+                @pieverse.Body
+>>>>>>> origin/dev
             </p>
+            @Ajax.ActionLink(
+                pieverse.LikesCount.ToString(),
+                "Like",
+                new {id = pieverse.Id},
+                new AjaxOptions() {UpdateTargetId = "like" + pieverse.Id},
+                new {@class = "like " + likeClass, id = "like" + pieverse.Id}
+                )
             @if (User.IsInRole("Admin"))
             {
-                <a class="like" href="#like"></a><a class="delete" href="@Url.Action("Delete", new {id = @Model.ElementAt(i).Id})"></a>
+                <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
             }
-            else
-            {
-                <a class="like" href="#like"></a>
-            }
+<<<<<<< HEAD
+>>>>>>> origin/dev
+=======
+        </div>
+        <div class="author">@pieverse.AuthorName</div>
+        <div class="time">@pieverse.AddingTime</div>
 >>>>>>> origin/dev
     </div>
-</div>
 }
 
 

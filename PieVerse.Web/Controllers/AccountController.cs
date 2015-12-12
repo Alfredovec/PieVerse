@@ -5,10 +5,12 @@ using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using AutoMapper;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using PieVerse.BLL.Interfaces;
+using PieVerse.DomainModel.Entities;
 using PieVerse.Web.Attributes;
-using PieVerse.Web.Filters;
 using PieVerse.Web.Models;
 using WebMatrix.WebData;
 
@@ -16,6 +18,13 @@ namespace PieVerse.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IService _service;
+
+        public AccountController(IService service)
+        {
+            _service = service;
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -34,7 +43,7 @@ namespace PieVerse.Web.Controllers
                     //    return Redirect(returnUrl);
                     return RedirectToAction("feed", "Pieverse");
                 }
-                ModelState.AddModelError("", "Sorry, the username or password is invalid");
+                ModelState.AddModelError("", "Неправильный логин/пароль.");
             }
             return View(model);
         }
@@ -56,11 +65,12 @@ namespace PieVerse.Web.Controllers
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     Roles.AddUserToRole(model.UserName, role);
                     WebSecurity.Login(model.UserName, model.Password);
+                    _service.AuthorService.CreateAuthor(Mapper.Map<Author>(model));
                     return RedirectToAction("feed", "Pieverse");
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Sorry, the username already exists");
+                    ModelState.AddModelError("", "Извините, этот ник уже занят.");
                 }
             }
             return View(model);

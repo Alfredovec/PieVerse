@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\FirstLine.cs" />
+    <Compile Include="Entities\Like.cs" />
     <Compile Include="Entities\Pieverse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

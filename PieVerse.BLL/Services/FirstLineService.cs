@@ -23,8 +23,10 @@ namespace PieVerse.BLL.Services
             return firstLines.ElementAt(random.Next(firstLines.Count()));
         }
 
-        public void Add(FirstLine line)
+        public void Add(FirstLine line, string authorName)
         {
+            var author = _unitOfWork.AuthorRepository.Get().Single(a => a.Nickname.Equals(authorName));
+            line.Author = author;
             _unitOfWork.FirstLineRepository.Create(line);
             _unitOfWork.Save();
         }
