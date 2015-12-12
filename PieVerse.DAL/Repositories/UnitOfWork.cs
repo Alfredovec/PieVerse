@@ -13,7 +13,8 @@ namespace PieVerse.DAL.Repositories
 
         public IAuthorRepository AuthorRepository { get { return new AuthorRepository(_context);} }
         public IPieverseRepository PieverseRepository { get { return new PieverseRepository(_context);} }
-        public IFirstLineRepository FirstLineRepository { get { return new FirstLineRepository(_context);} }
+        public IFirstLineRepository FirstLineRepository { get { return new FirstLineRepository(_context); } }
+        public ILikeRepository LikeRepository { get { return new LikeRepository(_context); } }
 
         public void Save()
         {

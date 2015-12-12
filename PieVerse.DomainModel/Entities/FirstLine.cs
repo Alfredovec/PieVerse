@@ -11,8 +11,6 @@ namespace PieVerse.DomainModel.Entities
         [Required]
         public string Text { get; set; }
 
-        // TODO @Kondrat implement other props
-
         public virtual Author Author { get; set; }
 
         public virtual ICollection<Pieverse> Pieverses { get; set; }

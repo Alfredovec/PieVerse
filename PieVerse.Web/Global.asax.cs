@@ -23,21 +23,22 @@ namespace PieVerse.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             MapperConfig.RegisterMaps();
-            WebSecurity.InitializeDatabaseConnection("PieverseContext", "UserProfile", "UserId", "UserName", true);
+
+            WebSecurity.InitializeDatabaseConnection("PieverseContext", "Users", "UserId", "UserName", true);
             if (!Roles.RoleExists("User"))
                 Roles.CreateRole("User");
             if (!Roles.RoleExists("Admin"))
                 Roles.CreateRole("Admin");
-            if (!WebSecurity.UserExists("Admin"))
-            {
-                WebSecurity.CreateUserAndAccount("Admin", "Admin");
-                Roles.AddUserToRole("Admin", "Admin");
-            }
-            if (!WebSecurity.UserExists("User"))
-            {
-                WebSecurity.CreateUserAndAccount("User", "User");
-                Roles.AddUserToRole("User", "User");
-            }
+            //if (!WebSecurity.UserExists("Admin"))
+            //{
+            //    WebSecurity.CreateUserAndAccount("Admin", "Admin");
+            //    Roles.AddUserToRole("Admin", "Admin");
+            //}
+            //if (!WebSecurity.UserExists("User"))
+            //{
+            //    WebSecurity.CreateUserAndAccount("User", "User");
+            //    Roles.AddUserToRole("User", "User");
+            //}
         }
     }
 }

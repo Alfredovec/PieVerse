@@ -8,6 +8,8 @@
 
         IFirstLineRepository FirstLineRepository { get; }
 
+        ILikeRepository LikeRepository { get; }
+
         void Save();
     }
 }

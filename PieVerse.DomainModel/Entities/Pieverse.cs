@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PieVerse.DomainModel.Entities
 {
@@ -10,7 +12,9 @@ namespace PieVerse.DomainModel.Entities
         [Required]
         public string Body { get; set; }
 
-        // TODO @Kondrat implement other props
+        public DateTime AddingTime { get; set; }
+
+        public virtual ICollection<Like> Likes { get; set; }
 
         public virtual FirstLine FirstLine { get; set; }
 

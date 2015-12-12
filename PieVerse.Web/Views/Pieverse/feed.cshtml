@@ -8,8 +8,8 @@
 
 <div class="sortContainer">
     <div class="sort">
-        <a class="new active" href="@Url.Action("Sort", new {sortingField = "new"})">Новые</a>
-        <a class="popular" href="@Url.Action("Sort", new {sortingField = "popular"})">Популярные</a>
+        <a class="new active" href="@Url.Action("Sort", new {sorting = "new"})">Новые</a>
+        <a class="popular" href="@Url.Action("Sort", new {sorting = "popular"})">Популярные</a>
     </div>
 </div>
 
@@ -17,6 +17,7 @@
 {
     var pieverseColorClass = i % 2 == 0 ? "b" : "w";
     var pieverse = Model.ElementAt(i);
+    var likeClass = pieverse.IsLiked ? "active" : "";
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
             <p class="text">
@@ -24,17 +25,19 @@
                 @pieverse.Body
             </p>
             @Ajax.ActionLink(
-                    pieverse.LikesCount.ToString(),
-                    "Like",
-                    new { id = pieverse.Id },
-                    new AjaxOptions() { UpdateTargetId = "like" + pieverse.LikesCount },
-                    new { @class = "like" }
-                    )
+                pieverse.LikesCount.ToString(),
+                "Like",
+                new {id = pieverse.Id},
+                new AjaxOptions() {UpdateTargetId = "like" + pieverse.Id},
+                new {@class = "like " + likeClass, id = "like" + pieverse.Id}
+                )
             @if (User.IsInRole("Admin"))
             {
-                <a class="delete" href="@Url.Action("Delete", new { id = @pieverse.Id })"></a>
+                <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
             }
         </div>
+        <div class="author">@pieverse.AuthorName</div>
+        <div class="time">@pieverse.AddingTime</div>
     </div>
 }
 

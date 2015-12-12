@@ -7,8 +7,10 @@ namespace PieVerse.DAL
     {
         protected override void Seed(PieverseContext context)
         {
-            var admin = new Author(){ Nickname = "Admin" };
+            var admin = new Author() { Nickname = "Admin" };
+            var user = new Author() { Nickname = "User" };
             context.Authors.Add(admin);
+            context.Authors.Add(user);
 
             string[] lines = new string[]
             {
@@ -32,12 +34,12 @@ namespace PieVerse.DAL
                 "пообещал поправив китель"
             };
 
-            for (int i = 0; i < lines.Length; i++)
+            foreach (string line in lines)
             {
                 context.FirstLines.Add(new FirstLine()
                 {
                     Author = admin,
-                    Text = lines[i]
+                    Text = line
                 });
             }
 

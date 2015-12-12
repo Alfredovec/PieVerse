@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAuthorRepository.cs" />
     <Compile Include="Interfaces\IFirstLineRepository.cs" />
+    <Compile Include="Interfaces\ILikeRepository.cs" />
     <Compile Include="Interfaces\IPieverseRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\FirstLineRepository.cs" />
     <Compile Include="Repositories\IPieverseRepository.cs" />
+    <Compile Include="Repositories\LikeRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
