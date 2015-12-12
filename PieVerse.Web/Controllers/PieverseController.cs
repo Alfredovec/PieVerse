@@ -23,7 +23,7 @@ namespace PieVerse.Web.Controllers
         [ActionName("feed")]
         public ActionResult GetFeed()
         {
-            IEnumerable<Pieverse> pieverses = _service.PayverseService.Get().OrderByDescending(p => p.AddingTime).ToList();
+            IEnumerable<Pieverse> pieverses = _service.PieverseService.Get().OrderByDescending(p => p.AddingTime).ToList();
             return View(pieverses.Select(Mapper.Map<PieverseViewModel>));
         }
 
@@ -44,7 +44,7 @@ namespace PieVerse.Web.Controllers
             model.AllLines = lines;
             if (ModelState.IsValid)
             {
-                _service.PayverseService.Add(Mapper.Map<Pieverse>(model), User.Identity.Name);
+                _service.PieverseService.Add(Mapper.Map<Pieverse>(model), User.Identity.Name);
                 return Content("Пирожок успешно добавлен!");
             }
             return PartialView("_addPieverse", model);
@@ -64,7 +64,7 @@ namespace PieVerse.Web.Controllers
 
         public ActionResult Sort(string sorting)
         {
-            IEnumerable<Pieverse> pieverses = _service.PayverseService.Get().ToList();
+            IEnumerable<Pieverse> pieverses = _service.PieverseService.Get().ToList();
             switch (sorting)
             {
                 case "new":
@@ -85,7 +85,8 @@ namespace PieVerse.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            _service.PayverseService.Delete(id);
+            _service.LikeService.DeleteLikesOf(pieverseId: id);
+            _service.PieverseService.Delete(id);
             return RedirectToAction("feed");
         }
 

@@ -10,5 +10,6 @@ namespace PieVerse.BLL.Interfaces
     {
         int Like(int pieverseId, string userName);
         bool IsLikedBy(string userName, int pieverseId);
+        void DeleteLikesOf(int pieverseId);
     }
 }

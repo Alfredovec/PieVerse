@@ -6,7 +6,7 @@
 
         IFirstLineService FirstLineService { get; }
 
-        IPayverseService PayverseService { get; }
+        IPayverseService PieverseService { get; }
 
         ILikeService LikeService { get; }
     }

@@ -44,5 +44,15 @@ namespace PieVerse.BLL.Services
             return _unitOfWork.LikeRepository.Get()
                 .Any(l => l.Author.Nickname.Equals(userName) && l.Pieverse.Id.Equals(pieverseId));
         }
+
+        public void DeleteLikesOf(int pieverseId)
+        {
+            var pieverse = _unitOfWork.PieverseRepository.Get().Single(p => p.Id.Equals(pieverseId));
+            foreach (var like in pieverse.Likes)
+            {
+                _unitOfWork.LikeRepository.Delete(like);
+            }
+            _unitOfWork.Save();
+        }
     }
 }
