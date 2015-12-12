@@ -16,22 +16,26 @@
 @for (var i = 0; i < Model.Count(); i++)
 {
     var pieverseColorClass = i % 2 == 0 ? "b" : "w";
+    var pieverse = Model.ElementAt(i);
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
             <p class="text">
-                @Model.ElementAt(i).FirstLine.Text
-                @Model.ElementAt(i).Body
+                @pieverse.FirstLine.Text
+                @pieverse.Body
             </p>
+            @Ajax.ActionLink(
+                    pieverse.LikesCount.ToString(),
+                    "Like",
+                    new { id = pieverse.Id },
+                    new AjaxOptions() { UpdateTargetId = "like" + pieverse.LikesCount },
+                    new { @class = "like" }
+                    )
             @if (User.IsInRole("Admin"))
             {
-                <a class="like" href="#like"></a><a class="delete" href="@Url.Action("Delete", new {id = @Model.ElementAt(i).Id})"></a>
+                <a class="delete" href="@Url.Action("Delete", new { id = @pieverse.Id })"></a>
             }
-            else
-            {
-                <a class="like" href="#like"></a>
-            }
+        </div>
     </div>
-</div>
 }
 
 

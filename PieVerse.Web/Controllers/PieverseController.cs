@@ -87,5 +87,10 @@ namespace PieVerse.Web.Controllers
             _service.PayverseService.Delete(id);
             return RedirectToAction("feed");
         }
+
+        public ActionResult Like(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
