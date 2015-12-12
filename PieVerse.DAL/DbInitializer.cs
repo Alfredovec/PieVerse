@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using PieVerse.DomainModel.Entities;
 
 namespace PieVerse.DAL
@@ -42,7 +37,7 @@ namespace PieVerse.DAL
                 context.FirstLines.Add(new FirstLine()
                 {
                     Author = admin,
-                    Body = lines[i]
+                    Text = lines[i]
                 });
             }
 

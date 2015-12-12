@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PieVerse.DomainModel.Entities;
 
 namespace PieVerse.BLL.Interfaces
@@ -11,5 +7,6 @@ namespace PieVerse.BLL.Interfaces
     {
         void Add(Pieverse entry);
         IEnumerable<Pieverse> Get();
+        void Delete(int id);
     }
 }

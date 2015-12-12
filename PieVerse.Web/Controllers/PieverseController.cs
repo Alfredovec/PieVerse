@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using PieVerse.BLL.Interfaces;
@@ -33,42 +31,61 @@ namespace PieVerse.Web.Controllers
         public ActionResult Add()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            return View(new PieverseViewModel() { FirstLine = Mapper.Map<FirstLineViewModel>(line) });
+            IEnumerable<string> lines = _service.FirstLineService.Get().Select(x => x.Text);
+            return View(new PieverseViewModel() { FirstLine = Mapper.Map<FirstLineViewModel>(line), AllLines = lines});
         }
 
         [HttpPost]
         [ActionName("AddPieverse")]
         public ActionResult Add(PieverseViewModel model)
         {
+            IEnumerable<string> lines = _service.FirstLineService.Get().Select(x => x.Text);
+            model.AllLines = lines;
             if (ModelState.IsValid)
             {
                 _service.PayverseService.Add(Mapper.Map<Pieverse>(model));
-                return RedirectToAction("feed");
+                return Content("Пирожок успешно добавлен!");
             }
-            return View("_addPieverse", model);
+            return PartialView("_addPieverse", model);
         }
 
+        [HttpPost]
         [ActionName("AddFirstline")]
         public ActionResult Add(FirstLineViewModel model)
         {
             if (ModelState.IsValid)
             {
                 _service.FirstLineService.Add(Mapper.Map<FirstLine>(model));
-                return RedirectToAction("feed");
+                return Content("Строка успешно добавлена!");
             }
-            return View("_addFirstLine", model);
+            return PartialView("_addFirstLine", model);
         }
 
-        public PartialViewResult Sort()
+        public ActionResult Sort(string sortingField)
         {
-            // TODO @Rud 
-            return null;
+            IEnumerable<Pieverse> pieverses = _service.PayverseService.Get().ToList();
+            switch (sortingField)
+            {
+                case "new":
+                    pieverses = pieverses.OrderBy(p => p.Id);
+                    return View("feed", pieverses.Select(Mapper.Map<PieverseViewModel>));
+                case "popular":
+                    pieverses = pieverses.OrderBy(p => p.FirstLine.Text);
+                    return View("feed", pieverses.Select(Mapper.Map<PieverseViewModel>));
+            }
+            return RedirectToAction("feed");
         }
 
         public PartialViewResult RefreshLine()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            return PartialView("_FirstLine", new FirstLineViewModel() { Body = line.Body, Id = line.Id });
+            return PartialView("_FirstLine", new FirstLineViewModel() { Text = line.Text, Id = line.Id });
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _service.PayverseService.Delete(id);
+            return RedirectToAction("feed");
         }
     }
 }

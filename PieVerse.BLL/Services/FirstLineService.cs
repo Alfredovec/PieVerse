@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PieVerse.BLL.Interfaces;
 using PieVerse.DAL.Interfaces;
 using PieVerse.DomainModel.Entities;
@@ -29,6 +27,11 @@ namespace PieVerse.BLL.Services
         {
             _unitOfWork.FirstLineRepository.Create(line);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<FirstLine> Get()
+        {
+            return _unitOfWork.FirstLineRepository.Get();
         }
     }
 }
