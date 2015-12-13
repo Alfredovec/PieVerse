@@ -11,6 +11,7 @@
         <div class="sort">
             <a class="new active" href="@Url.Action("Sort", new {sortingField = "new"})">Новые</a>
             <a class="popular" href="@Url.Action("Sort", new {sortingField = "popular"})">Популярные</a>
+        </div>
     </div>
 </div>
 
@@ -26,39 +27,30 @@
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
             <p class="text">
-<<<<<<< HEAD
-                @Model.ElementAt(i).FirstLine.Text
-                @Model.ElementAt(i).Body
-<<<<<<< HEAD
-            </p><a class="writeThis"></a><a class="like"></a><a class="delete"></a><a class="like"></a><div class="like-container"><div class="like-count">123</div></div>
-        <div class="under">
-            <span class="author">@Author</span>|<span class="date">05:10 06.06.2006</span>
-        </div>
-        </div>
-=======
-=======
                 @pieverse.FirstLine.Text
                 @pieverse.Body
->>>>>>> origin/dev
             </p>
-            @Ajax.ActionLink(
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
+            }
+            @* Ajax.ActionLink(
                 pieverse.LikesCount.ToString(),
                 "Like",
                 new {id = pieverse.Id},
                 new AjaxOptions() {UpdateTargetId = "like" + pieverse.Id},
                 new {@class = "like " + likeClass, id = "like" + pieverse.Id}
                 )
-            @if (User.IsInRole("Admin"))
-            {
-                <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
-            }
-<<<<<<< HEAD
->>>>>>> origin/dev
-=======
-        </div>
-        <div class="author">@pieverse.AuthorName</div>
-        <div class="time">@pieverse.AddingTime</div>
->>>>>>> origin/dev
+            *@
+            <a class="like @likeClass" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#" href="#" id="like4"></a>
+            <div class="like-container">
+                <div class="like-count">123</div>
+            </div>
+            <div class="under">
+                <span class="author">@pieverse.AuthorName</span>|
+                <span class="date">@pieverse.AddingTime</span>
+            </div>
+    `   </div>
     </div>
 }
 

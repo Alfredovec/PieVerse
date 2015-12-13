@@ -3,7 +3,6 @@
     <text>
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
         {
->>>>>>> origin/dev
             @Html.AntiForgeryToken()
             <div class="container-right">
                 @User.Identity.Name, <a class="log-but" href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
