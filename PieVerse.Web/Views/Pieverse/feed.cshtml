@@ -26,8 +26,7 @@
     var likeClass = pieverse.IsLiked ? "active" : "";
     <div class="pieverseContainer @pieverseColorClass">
         <div class="pieverse">
-            <p class="text">
-                @pieverse.FirstLine.Text
+            <p class="text">@pieverse.FirstLine.Text
                 @pieverse.Body
             </p>
             @if (User.IsInRole("Admin"))
@@ -50,7 +49,7 @@
                 <span class="author">@pieverse.AuthorName</span>|
                 <span class="date">@pieverse.AddingTime</span>
             </div>
-    `   </div>
+        </div>
     </div>
 }
 

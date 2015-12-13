@@ -35,22 +35,22 @@ html, body {
     padding: 0;
 }
 
-    .menu li {
-        list-style: none;
-        display: inline-block;
-        padding: 0 25px;
-        text-transform: uppercase;
-        font-size: 25px;
-    }
+.menu li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 25px;
+    text-transform: uppercase;
+    font-size: 25px;
+}
 
-        .menu li a {
-            color: #84c1e1;
-            text-decoration: none;
-        }
+.menu li a {
+    color: #84c1e1;
+    text-decoration: none;
+}
 
-        .menu li.active {
-            text-decoration: underline;
-        }
+.menu li.active {
+    text-decoration: underline;
+}
 
 main {
     /*width: 700px;
@@ -146,18 +146,17 @@ main {
     text-align: center;
 }
 
-    .pieverseContainer.b {
-        background-color: #f2f9fc;
-    }
+.pieverseContainer.b {
+    background-color: #f2f9fc;
+}
 
-    .pieverseContainer.w {
-        background-color: #fff;
-    }
+.pieverseContainer.w {
+    background-color: #fff;
+}
 
 .pieverse {
     width: 700px;
     display: inline-block;
-    line-height: 92px;
 }
 
 .text {
@@ -170,6 +169,7 @@ main {
     line-height: 23px;
     text-align: left;
     white-space: pre-line;
+    float: left;
 }
 
 .like, .writeThis {
@@ -234,9 +234,9 @@ form {
     color: red;
 }
 
-    .text-danger > ul {
-        list-style-type: none;
-    }
+.text-danger > ul {
+    list-style-type: none;
+}
 
 .container-right {
     text-align: right;
@@ -265,13 +265,6 @@ form {
 
 .line-menu {
     list-style: none;
-}
-
-.search-pan {
-    border: 2px dotted #84c1e1;
-    padding: 10px;
-    display: inline-block;
-    margin-top: 15px;
 }
 
 bl {
@@ -304,39 +297,39 @@ blbar {
     padding: 4px 3px;
 }
 
-    blbar img {
-        margin: -2px 0 0 2px;
-    }
+blbar img {
+    margin: -2px 0 0 2px;
+}
 
-    blbar label {
-        display: inline;
-        cursor: pointer;
-        font: 13px arial;
-    }
+blbar label {
+    display: inline;
+    cursor: pointer;
+    font: 13px arial;
+}
 
-    blbar blcheckbox {
-        margin: 0 4px;
-    }
+blbar blcheckbox {
+    margin: 0 4px;
+}
 
-        blbar blbutton, blbar blcheckbox:not(:last-child) {
-            border-right: 1px solid #b8b6b6;
-            padding-right: 7px;
-        }
+blbar blbutton, blbar blcheckbox:not(:last-child) {
+    border-right: 1px solid #b8b6b6;
+    padding-right: 7px;
+}
 
-    blbar input {
-        margin: -3px auto auto 3px !important;
-        vertical-align: middle;
-    }
+blbar input {
+    margin: -3px auto auto 3px !important;
+    vertical-align: middle;
+}
 
-    blbar blbutton:not([disabled]) {
-        cursor: pointer;
-        display: inline-block;
-        margin: 0 4px;
-    }
+blbar blbutton:not([disabled]) {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 4px;
+}
 
-    blbar blbutton:hover {
-        text-decoration: underline;
-    }
+blbar blbutton:hover {
+    text-decoration: underline;
+}   
 
 .bldisabled {
     cursor: default !important;
@@ -530,6 +523,7 @@ main {
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: center;
+    float: left;
 }
 
 .like {
@@ -557,7 +551,7 @@ main {
 .delete {
     margin: 10px 20px 0;
     background-color: #ff9090;
-    background-image: url(img/Delete-50.png);
+    background-image: url(~/../../Images/Delete-50.png);
 }
 
 .delete:hover {
@@ -605,14 +599,14 @@ main {
 
 /* write */
 
-.line-container>div>form,
-.pieverse-container>div>form {
+.line-container,
+.pieverse-container {
     width: 700px;
     text-align: left;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 
-.line-container>div>form>input[type=text] {
+.line-container>form>input[type=text] {
     padding: 5px 9px;
     outline: none;
     border: 2px dashed #b2dbf0;
@@ -622,14 +616,14 @@ main {
     font-family: 'Play', sans-serif;
 }
 
-.line-container>div>form>input[type=text]:hover,
-.line-container>div>form>input[type=text]:active,
-.line-container>div>form>input[type=text]:focus {
+.line-container>form>input[type=text]:hover,
+.line-container>form>input[type=text]:active,
+.line-container>form>input[type=text]:focus {
     border: 2px dashed #84c1e1;
 }
 
-.line-container>div>form>input[type=submit],
-.pieverse-container>div>form>input[type=submit] {
+.line-container>form>input[type=submit],
+.pieverse-container>form>input[type=submit] {
     margin-left: 10px;
     border: none;
     background-color: #a5d2ea;
@@ -638,8 +632,8 @@ main {
     border-radius: 3px;
 }
 
-.line-container>div>form>input[type=submit]:hover,
-.pieverse-container>div>form>input[type=submit]:hover {
+.line-container>form>input[type=submit]:hover,
+.pieverse-container>form>input[type=submit]:hover {
     background-color: #84c1e1;
 }
 
@@ -766,11 +760,11 @@ form {
 }
 
 .search-pan{
-  padding: 10px;
-  display: inline-block;
-  margin-top: 15px;
-  width: 700px;
-  text-align: left;
+    display: inline-block;
+    margin-top: 15px;
+    width: 700px;
+    text-align: left;
+    margin-top: 30px;
 }
 
 .under{
@@ -782,11 +776,6 @@ form {
 .under div{
   display:  inline-block;
   width: 200px;
-}
-
-.like-count{
-  display: inline-block;
-  width: 100px;
 }
 
 input.text-box {
