@@ -1,18 +1,17 @@
-@model PieVerse.Web.Models.PieverseViewModel
+﻿@model PieVerse.Web.Models.PieverseViewModel
            
-@using (Ajax.BeginForm("AddPieverse", "Pieverse", new AjaxOptions() { UpdateTargetId = "addPieverse" }, FormMethod.Post))
+@using (Ajax.BeginForm("AddPieverse", "Pieverse", new AjaxOptions() { UpdateTargetId = "menu2" }, FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationMessageFor(m => m.Body)
+    
     <p class="firstLine" id="firstLine">
         @Html.Partial("_FirstLine", Model.FirstLine)
     </p>
 
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
     @Html.HiddenFor(m => m.FirstLine.Text)
     @Html.HiddenFor(m => m.FirstLine.Id)
 
-    @Html.ValidationMessageFor(m => m.Body, "", new { style = "display: block;" })
     @Html.TextAreaFor(m => m.Body, new { @class = "nextLines", rows = "3" })
     <div>
         <input type="submit" value="Написать" />

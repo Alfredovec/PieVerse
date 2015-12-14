@@ -1,4 +1,4 @@
-@using PieVerse.Web.Models
+﻿@using PieVerse.Web.Models
 @model PieVerse.Web.Models.PieverseViewModel
 
 @{
@@ -25,7 +25,3 @@
 <div id="menu2" class="pieverse-container tab-pane fade active in">
     @Html.Partial("_addPieverse", Model)
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

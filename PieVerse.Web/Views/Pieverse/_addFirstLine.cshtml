@@ -1,6 +1,6 @@
-@model PieVerse.Web.Models.FirstLineViewModel
+﻿@model PieVerse.Web.Models.FirstLineViewModel
 
-@using (Ajax.BeginForm("AddFirstline", "Pieverse", new AjaxOptions() { UpdateTargetId = "addFirstLine" }, FormMethod.Post))
+@using (Ajax.BeginForm("AddFirstline", "Pieverse", new AjaxOptions() { UpdateTargetId = "menu1" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

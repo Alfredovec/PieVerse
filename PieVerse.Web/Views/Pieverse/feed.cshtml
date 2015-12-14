@@ -1,4 +1,4 @@
-@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
+﻿@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
 
 @* Rud's kostyl' begin *@
 @{
@@ -9,8 +9,8 @@
 <div class = "container-left">
     <div class="sortContainer">
         <div class="sort">
-            <a class="new active" href="@Url.Action("Sort", new {sortingField = "new"})">Новые</a>
-            <a class="popular" href="@Url.Action("Sort", new {sortingField = "popular"})">Популярные</a>
+            <a class="new active" href="@Url.Action("Sort", new {sorting = "new"})">Новые</a>
+            <a class="popular" href="@Url.Action("Sort", new {sorting = "popular"})">Популярные</a>
         </div>
     </div>
 </div>
@@ -33,17 +33,13 @@
             {
                 <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
             }
-            @* Ajax.ActionLink(
-                pieverse.LikesCount.ToString(),
-                "Like",
-                new {id = pieverse.Id},
-                new AjaxOptions() {UpdateTargetId = "like" + pieverse.Id},
-                new {@class = "like " + likeClass, id = "like" + pieverse.Id}
-                )
-            *@
-            <a class="like @likeClass" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#" href="#" id="like4"></a>
+            <a class="like @likeClass"
+                 data-ajax="true"
+                 data-ajax-mode="replace"
+                 data-ajax-update='@string.Format("#like{0}", pieverse.Id)'
+                 href='@string.Format("/Pieverse/Like/{0}", pieverse.Id)'></a>
             <div class="like-container">
-                <div class="like-count">123</div>
+                <div class="like-count" id='@string.Format("like{0}", pieverse.Id)'>@pieverse.LikesCount</div>
             </div>
             <div class="under">
                 <span class="author">@pieverse.AuthorName</span>|
