@@ -48,7 +48,8 @@ namespace PieVerse.BLL.Services
         public void DeleteLikesOf(int pieverseId)
         {
             var pieverse = _unitOfWork.PieverseRepository.Get().Single(p => p.Id.Equals(pieverseId));
-            foreach (var like in pieverse.Likes)
+            var likes = pieverse.Likes.ToList();
+            foreach (var like in likes)
             {
                 _unitOfWork.LikeRepository.Delete(like);
             }

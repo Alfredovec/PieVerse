@@ -18,8 +18,8 @@ namespace PieVerse.BLL.Services
 
         public void Add(Pieverse entry, string authorName)
         {
-            var author = _unitOfWork.AuthorRepository.Get().Single(a => a.Nickname.Equals(authorName));
-            var firstLine = _unitOfWork.FirstLineRepository.Get().Single(l => l.Text.Equals(entry.FirstLine.Text));
+            var author = _unitOfWork.AuthorRepository.Get().First(a => a.Nickname.Equals(authorName));
+            var firstLine = _unitOfWork.FirstLineRepository.Get().First(l => l.Text.Equals(entry.FirstLine.Text));
             entry.Author = author;
             entry.FirstLine = firstLine;
             _unitOfWork.PieverseRepository.Create(entry);
