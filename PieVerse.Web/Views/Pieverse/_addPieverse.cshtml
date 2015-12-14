@@ -1,13 +1,11 @@
-﻿@model PieVerse.Web.Models.PieverseViewModel
+@model PieVerse.Web.Models.PieverseViewModel
            
 @using (Ajax.BeginForm("AddPieverse", "Pieverse", new AjaxOptions() { UpdateTargetId = "menu2" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationMessageFor(m => m.Body)
     
-    <p class="firstLine" id="firstLine">
-        @Html.Partial("_FirstLine", Model.FirstLine)
-    </p>
+    @Html.Partial("_FirstLine", Model.FirstLine)
 
     @Html.HiddenFor(m => m.FirstLine.Text)
     @Html.HiddenFor(m => m.FirstLine.Id)
