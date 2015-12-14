@@ -9,8 +9,8 @@
 <div class = "container-left">
     <div class="sortContainer">
         <div class="sort">
-            <a class="new active" href="@Url.Action("Sort", new {sorting = "new"})">Новые</a>
-            <a class="popular" href="@Url.Action("Sort", new {sorting = "popular"})">Популярные</a>
+            <a class="new @ViewBag.NewActive" href="@Url.Action("Sort", new {sorting = "new"})">Новые</a>
+            <a class="popular @ViewBag.PopularActive" href="@Url.Action("Sort", new {sorting = "popular"})">Популярные</a>
         </div>
     </div>
 </div>

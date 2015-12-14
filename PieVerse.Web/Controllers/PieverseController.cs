@@ -23,6 +23,8 @@ namespace PieVerse.Web.Controllers
         [ActionName("feed")]
         public ActionResult GetFeed()
         {
+            ViewBag.NewActive = "active";
+            ViewBag.PopularActive = "";
             IEnumerable<Pieverse> pieverses = _service.PieverseService.Get().OrderByDescending(p => p.AddingTime).ToList();
             return View(pieverses.Select(Mapper.Map<PieverseViewModel>));
         }
@@ -69,8 +71,12 @@ namespace PieVerse.Web.Controllers
             {
                 case "new":
                     pieverses = pieverses.OrderByDescending(p => p.AddingTime);
+                    ViewBag.NewActive = "active";
+                    ViewBag.PopularActive = "";
                     return View("feed", pieverses.Select(Mapper.Map<PieverseViewModel>));
                 case "popular":
+                    ViewBag.NewActive = "";
+                    ViewBag.PopularActive = "active";
                     pieverses = pieverses.OrderByDescending(p => p.Likes.Count);
                     return View("feed", pieverses.Select(Mapper.Map<PieverseViewModel>));
             }
