@@ -560,6 +560,7 @@ main {
     margin: 10px 20px 0;
     background-color: #ff9090;
     background-image: url(~/../../Images/Delete-50.png);
+    float: left;
 }
 
 .delete:hover {
