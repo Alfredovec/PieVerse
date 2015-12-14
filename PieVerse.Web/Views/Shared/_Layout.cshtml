@@ -33,5 +33,20 @@
     <footer>
         (c) 2015 PieVerse
     </footer>
+    
+    <script>
+    
+    $(".line-menu a").click( function (event) { 
+        event.preventDefault();
+        $("#firstLine").html($(this).html());
+        $("#FirstLine_Id").val($(this).attr("id"));
+        $("#FirstLine_Body").val($(this).html());
+        $("html, body").animate({ scrollTop: 0 }, "fast");
+    });
+
+    $(".like").click(function() {$(this).toggleClass("active");});
+    
+    </script>
+    
 </body>
 </html>
