@@ -1,14 +1,14 @@
+﻿@model PieVerse.Web.Models.FirstLineViewModel
+
+
 <p class="firstLine" id="firstLine">
-    
-    @model PieVerse.Web.Models.FirstLineViewModel
-    
+    @Html.DisplayFor(m => m.Text)
+
+    @Html.Hidden("FirstLine.Body", Model.Text)
+    @Html.Hidden("FirstLine.Id", Model.Id)
+
+    <a class="randomLine" data-ajax="true" data-ajax-mode="replace"
+        data-ajax-update="#firstLine" href="@Url.Action("RefreshLine")"
+        title="Другая строка">
+    </a>
 </p>
-
-@Html.DisplayFor(m => m.Text)
-
-@Html.Hidden("FirstLine.Body", Model.Text)
-@Html.Hidden("FirstLine.Id", Model.Id)
-
-<a class="randomLine<p class="firstLine" id="firstLine">" data-ajax="true" data-ajax-mode="replace"
-   data-ajax-update="#firstLine" href="@Url.Action("RefreshLine")" 
-   title="Другая строка"></a>
