@@ -32,7 +32,7 @@ namespace PieVerse.Web.Controllers
         public ActionResult Add()
         {
             FirstLine line = _service.FirstLineService.GetRandomFirstLine();
-            IEnumerable<string> lines = _service.FirstLineService.Get().Select(x => x.Text);
+            IEnumerable<FirstLineViewModel> lines = _service.FirstLineService.Get().Select(Mapper.Map<FirstLineViewModel>);
             return View(new PieverseViewModel() { FirstLine = Mapper.Map<FirstLineViewModel>(line), AllLines = lines });
         }
 
@@ -40,7 +40,7 @@ namespace PieVerse.Web.Controllers
         [ActionName("AddPieverse")]
         public ActionResult Add(PieverseViewModel model)
         {
-            IEnumerable<string> lines = _service.FirstLineService.Get().Select(x => x.Text);
+            var lines = _service.FirstLineService.Get().Select(Mapper.Map<FirstLineViewModel>);
             model.AllLines = lines;
             if (ModelState.IsValid)
             {

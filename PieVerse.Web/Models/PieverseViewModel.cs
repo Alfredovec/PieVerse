@@ -21,7 +21,7 @@ namespace PieVerse.Web.Models
 
         public FirstLineViewModel FirstLine { get; set; }
 
-        public IEnumerable<string> AllLines { get; set; }
+        public IEnumerable<FirstLineViewModel> AllLines { get; set; }
 
         public int LikesCount { get; set; }
 
