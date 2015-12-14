@@ -1,11 +1,14 @@
 ﻿@model PieVerse.Web.Models.PieverseViewModel
-           
+
 @using (Ajax.BeginForm("AddPieverse", "Pieverse", new AjaxOptions() { UpdateTargetId = "menu2" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationMessageFor(m => m.Body)
-    
-    @Html.Partial("_FirstLine", Model.FirstLine)
+
+
+    <p class="firstLine" id="firstLine">
+        @Html.Partial("_FirstLine", Model.FirstLine)
+    </p>
 
     @Html.HiddenFor(m => m.FirstLine.Text)
     @Html.HiddenFor(m => m.FirstLine.Id)
@@ -22,9 +25,9 @@
         <input type="submit" value="Пошук" class="search-but">
     </form>
     <ul class="line-menu">
-    @foreach (var line in Model.AllLines)
-    {
-        <li><a href="#" id="@line.Id">@line.Text</a></li>
-    }
+        @foreach (var line in Model.AllLines)
+        {
+            <li><a href="#" id="@line.Id">@line.Text</a></li>
+        }
     </ul>
 </div>
