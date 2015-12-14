@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
+@model IEnumerable<PieVerse.Web.Models.PieverseViewModel>
 
 @* Rud's kostyl' begin *@
 @{
@@ -29,15 +29,17 @@
             <p class="text">@pieverse.FirstLine.Text
                 @pieverse.Body
             </p>
-            @if (User.IsInRole("Admin"))
-            {
-                <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
-            }
-            <a class="like @likeClass"
-                 data-ajax="true"
-                 data-ajax-mode="replace"
-                 data-ajax-update='@string.Format("#like{0}", pieverse.Id)'
-                 href='@string.Format("/Pieverse/Like/{0}", pieverse.Id)'></a>
+            <div class="button-container">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="delete" href="@Url.Action("Delete", new {id = @pieverse.Id})"></a>
+                }
+                <a class="like @likeClass"
+                     data-ajax="true"
+                     data-ajax-mode="replace"
+                     data-ajax-update='@string.Format("#like{0}", pieverse.Id)'
+                     href='@string.Format("/Pieverse/Like/{0}", pieverse.Id)'></a>
+            </div>
             <div class="like-container">
                 <div class="like-count" id='@string.Format("like{0}", pieverse.Id)'>@pieverse.LikesCount</div>
             </div>

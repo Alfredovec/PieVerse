@@ -1,4 +1,4 @@
-﻿@using PieVerse.Web.Models
+@using PieVerse.Web.Models
 @model PieVerse.Web.Models.PieverseViewModel
 
 @{
@@ -25,3 +25,15 @@
 <div id="menu2" class="pieverse-container tab-pane fade active in">
     @Html.Partial("_addPieverse", Model)
 </div>
+
+<script>
+    
+    $(".line-menu a").click( function () { 
+        $("#firstLine").html($(this).value());
+        $("#FirstLine_Id").value($(this).attr("id"));
+        $("#FirstLine_Body").value($(this).value());
+    });
+
+    $(".like").click(function() {$(this).toggleClass("active");});
+    
+</script>
